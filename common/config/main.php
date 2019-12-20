@@ -1,5 +1,6 @@
 <?php
 return [
+    'bootstrap' => ['gii'],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
@@ -31,7 +32,10 @@ return [
     'modules' => [
         'admin' => [
             'class' => 'mdm\admin\Module',
-        ]
+        ],
+        'gii' => [
+            'class' => 'yii\gii\Module',
+        ],
     ],
     // 'as access' => [
     //     'class' => 'mdm\admin\components\AccessControl',

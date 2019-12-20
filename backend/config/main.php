@@ -11,7 +11,15 @@ return [
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
-    'modules' => [],
+    'modules' => [
+        'gridview' =>  [
+        'class' => '\kartik\grid\Module'
+            ],
+        'gridviewKrajee' =>  [
+        'class' => '\kartik\grid\Module',
+        // your other grid module settings
+            ]  
+        ],
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-backend',
@@ -39,6 +47,14 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+        
+        'assetManager' => [
+        'bundles' => [
+            'kartik\form\ActiveFormAsset' => [
+                'bsDependencyEnabled' => false // do not load bootstrap assets for a specific asset bundle
+            ],
+        ],
+    ],
         /*
         'urlManager' => [
             'enablePrettyUrl' => true,
@@ -52,6 +68,7 @@ return [
     'as access' => [
         'class' => 'mdm\admin\components\AccessControl',
         'allowActions' => [
+            '*',
             'site/*',
             'admin/*',
             'gii/*',
